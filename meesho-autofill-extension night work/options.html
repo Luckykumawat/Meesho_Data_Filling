@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meesho Auto-Fill Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .header h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+    
+    .form-group input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    .help-text {
+      font-size: 12px;
+      color: #888;
+      margin-top: 6px;
+    }
+    
+    .btn-save {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .btn-save:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .status {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      text-align: center;
+      display: none;
+    }
+    
+    .status.success {
+      display: block;
+      background: #e8f5e9;
+      color: #388e3c;
+    }
+    
+    .status.error {
+      display: block;
+      background: #ffebee;
+      color: #d32f2f;
+    }
+    
+    .instructions {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+    }
+    
+    .instructions h3 {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 12px;
+    }
+    
+    .instructions ol {
+      padding-left: 20px;
+    }
+    
+    .instructions li {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    
+    .instructions code {
+      background: #e0e0e0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Meesho Auto-Fill Settings</h1>
+      <p>Configure your Google Apps Script connection</p>
+    </div>
+    
+    <div class="form-group">
+      <label for="apiUrl">Google Apps Script Web App URL</label>
+      <input 
+        type="url" 
+        id="apiUrl" 
+        placeholder="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"
+      >
+      <p class="help-text">Enter the URL of your deployed Google Apps Script Web App</p>
+    </div>
+    
+    <button id="btnSave" class="btn-save">Save Settings</button>
+    
+    <div id="status" class="status"></div>
+    
+    <div class="instructions">
+      <h3>How to get your Web App URL:</h3>
+      <ol>
+        <li>Open your Google Apps Script project</li>
+        <li>Click <code>Deploy</code> → <code>New deployment</code></li>
+        <li>Select type: <code>Web app</code></li>
+        <li>Set Execute as: <code>Me</code></li>
+        <li>Set Who has access: <code>Anyone</code></li>
+        <li>Click <code>Deploy</code></li>
+        <li>Copy the Web App URL and paste it above</li>
+      </ol>
+    </div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
